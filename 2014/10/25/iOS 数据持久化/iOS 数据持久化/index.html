@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="iOS 中,数据持久化的几种方式
+plist 文件
+preference
+NSKeyedArchiver
+SQLite
+coreData
+
+沙盒每个应用程序都有自己的操作空间(沙盒)
+应用程序包
+Documents
+Library
+    Caches
+    Preferences
+tmp
+123"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Orange"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iOS 数据持久化"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="iOS 中,数据持久化的几种方式
+plist 文件
+preference
+NSKeyedArchiver
+SQLite
+coreData
+
+沙盒每个应用程序都有自己的操作空间(沙盒)
+应用程序包
+Documents
+Library
+    Caches
+    Preferences
+tmp
+123"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="野马奔腾"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>iOS 数据持久化 - 野马奔腾</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sias_Orange</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/OrangeFLJ/OrangeFLJ.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://old.bz55.com/uploads/allimg/140325/1-140325145153.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iOS 数据持久化</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2014-10-25
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="iOS-中-数据持久化的几种方式"><a href="#iOS-中-数据持久化的几种方式" class="headerlink" title="iOS 中,数据持久化的几种方式"></a>iOS 中,数据持久化的几种方式</h3><ul>
+<li><strong>plist 文件</strong></li>
+<li><strong>preference</strong></li>
+<li><strong>NSKeyedArchiver</strong></li>
+<li><strong>SQLite</strong></li>
+<li><strong>coreData</strong></li>
+</ul>
+<h3 id="沙盒"><a href="#沙盒" class="headerlink" title="沙盒"></a><strong>沙盒</strong></h3><p>每个应用程序都有自己的操作空间(沙盒)</p>
+<pre><code>应用程序包
+Documents
+Library
+    Caches
+    Preferences
+tmp
+</code></pre><figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//应用程序包: 应用程序的源文件,包含资源文件和可执行文件</span></span><br><span class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] bundlePath];</span><br><span class="line"><span class="comment">//Documents:最常用的目录，iTunes同步该应用时会同步此文件夹中的内容，适合存储重要数据。</span></span><br><span class="line"><span class="built_in">NSString</span> *path = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>).firstObject;</span><br><span class="line"><span class="comment">//Library/Caches: iTunes不会同步此文件夹，适合存储体积大，不需要备份的非重要数据。</span></span><br><span class="line"><span class="built_in">NSString</span> *path = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>).firstObject;</span><br><span class="line"><span class="comment">//Library/Preferences: iTunes同步该应用时会同步此文件夹中的内容，通常保存应用的设置信息。</span></span><br><span class="line"><span class="comment">//tmp: iTunes不会同步此文件夹，系统可能在应用没运行时就删除该目录下的文件，所以此目录适合保存应用中的一些临时文件，用完就删除。</span></span><br><span class="line"><span class="built_in">NSString</span> *path = <span class="built_in">NSTemporaryDirectory</span>();</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="meta">#### Plist文件</span></span><br><span class="line">plist 可以序列化的类型</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSArray</span>;</span><br><span class="line">    <span class="built_in">NSMutableArray</span>;</span><br><span class="line">    <span class="built_in">NSDictionary</span>;</span><br><span class="line">    <span class="built_in">NSMutableDictionary</span>;</span><br><span class="line">    <span class="built_in">NSData</span>;</span><br><span class="line">    <span class="built_in">NSMutableData</span>;</span><br><span class="line">    <span class="built_in">NSString</span>;</span><br><span class="line">    <span class="built_in">NSMutableString</span>;</span><br><span class="line">    <span class="built_in">NSNumber</span>;</span><br><span class="line">    <span class="built_in">NSDate</span>;</span><br><span class="line"></span><br><span class="line">* <span class="meta">###**使用方式**    </span></span><br><span class="line">    * **获取文件夹路径**</span><br><span class="line">    </span><br><span class="line">    ```objc</span><br><span class="line">    <span class="built_in">NSString</span> *path = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>).firstObject;</span><br><span class="line">    <span class="built_in">NSString</span> *fileName = [path stringByAppendingPathComponent:<span class="string">@"name.plist"</span>];</span><br></pre></td></tr></table></figure>
+<pre><code>* **存储**
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSArray</span> *array = @[<span class="string">@"123"</span>, <span class="string">@"456"</span>, <span class="string">@"789"</span>];</span><br><span class="line">[array writeToFile:fileName atomically:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+
+* **读取**
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSArray</span> *result = [<span class="built_in">NSArray</span> arrayWithContentsOfFile:fileName];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, result);</span><br></pre></td></tr></table></figure>
+</code></pre><p><em>注意:只有上述类型才能使用 Plist文件进行存储</em></p>
+<h4 id="Preference"><a href="#Preference" class="headerlink" title="Preference"></a>Preference</h4><p>略过</p>
+<h4 id="NSKeyedArchiver"><a href="#NSKeyedArchiver" class="headerlink" title="NSKeyedArchiver"></a>NSKeyedArchiver</h4><p>归档在<strong>iOS</strong>中是另一种形式的序列化，只要遵循了<strong>NSCoding</strong>协议的对象都可以通过它实现序列化。由于决大多数支持存储数据的<strong>Foundation</strong>和<strong>Cocoa Touch</strong>类都遵循了<strong>NSCoding</strong>协议，因此，对于大多数类来说，归档相对而言还是比较容易实现的。</p>
+<ul>
+<li>遵循 <strong>NSCoding</strong> 协议</li>
+</ul>
+<p>==NSCoding==协议声明了两个方法，这两个方法都是必须实现的。一个用来说明如何将对象编码到归档中，另一个说明如何进行解档来获取一个新对象。</p>
+<ul>
+<li><strong>遵循协议和设置属性</strong></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.遵循NSCoding协议 </span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCoding</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.设置属性</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIImage</span> *avatar;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>实现协议方法</strong></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解档</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">super</span> init]) &#123;</span><br><span class="line">        <span class="keyword">self</span>.avatar = [aDecoder decodeObjectForKey:<span class="string">@"avatar"</span>];</span><br><span class="line">        <span class="keyword">self</span>.name = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</span><br><span class="line">        <span class="keyword">self</span>.age = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//归档</span></span><br><span class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder &#123;</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span>.avatar forKey:<span class="string">@"avatar"</span>];</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span>.name forKey:<span class="string">@"name"</span>];</span><br><span class="line">    [aCoder encodeInteger:<span class="keyword">self</span>.age forKey:<span class="string">@"age"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==特别注意==: 如果需要归档的类是某个自定义类的子类时，就需要在归档和解档之前先实现父类的归档和解档方法。即 <code>[super encodeWithCoder:aCoder]</code> 和 <code>[super initWithCoder:aDecoder]</code>方法;</p>
+<ul>
+<li><strong>使用</strong><ul>
+<li>需要把对象归档是调用<code>NSKeyedArchiver</code>的工厂方法 <code>archiveRootObject: toFile:</code> 方法。</li>
+<li>需要从文件中解档对象就调用NSKeyedUnarchiver的一个工厂方法 unarchiveObjectWithFile: 即可。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *file = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>).firstObject stringByAppendingPathComponent:<span class="string">@"person.data"</span>];</span><br><span class="line">    </span><br><span class="line">Person *person = [[Person alloc] init];</span><br><span class="line">person.avatar = <span class="keyword">self</span>.avatarView.image;</span><br><span class="line">person.name = <span class="keyword">self</span>.nameField.text;</span><br><span class="line">person.age = [<span class="keyword">self</span>.ageField.text integerValue];</span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:person toFile:file];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *file = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>).firstObject stringByAppendingPathComponent:<span class="string">@"person.data"</span>];</span><br><span class="line">    </span><br><span class="line">Person *person = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:file];</span><br><span class="line"><span class="keyword">if</span> (person) &#123;</span><br><span class="line">   <span class="keyword">self</span>.avatarView.image = person.avatar;</span><br><span class="line">   <span class="keyword">self</span>.nameField.text = person.name;</span><br><span class="line">   <span class="keyword">self</span>.ageField.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>, person.age];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>==注意:==</p>
+<ul>
+<li>必须遵循并实现 NSCoding 协议</li>
+<li>保存文件的扩展名可以任意制定</li>
+<li>继承时必须先调用父类的归档解档单发</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 Orange<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
